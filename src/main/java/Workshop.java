@@ -9,21 +9,42 @@ public class Workshop {
     public int sumarDosNumeros(int a, int b) {
         // TODO: Implementar el método para retornar la suma de dos números enteros.
         // Ejemplo: Si a = 3 y b = 5, el resultado debería ser 8.
-        return 0;
+       int c;
+       c=a+b;
+        return c;
     }
 
     // Método que encuentra el mayor de tres números enteros
     public int mayorDeTresNumeros(int a, int b, int c) {
         // TODO: Implementar el método para retornar el mayor de los tres números enteros.
         // Ejemplo: Si a = 3, b = 7, y c = 5, el resultado debería ser 7.
-        return 0;
+        int mayor=0;
+        a=mayor;
+        if(mayor<b)
+        {
+            b=mayor;
+            if(mayor<c)
+            {
+                c=mayor;
+            }
+        }else
+        {
+            mayor=c;
+        }
+        return mayor;
     }
 
     // Método que retorna la tabla de multiplicar de un número
     public int[] tablaMultiplicar(int numero, int limite) {
         // TODO: Implementar el método para retornar la tabla de multiplicar del número dado.
         // Ejemplo: Si numero = 2 y limite = 5, el resultado debería ser [2, 4, 6, 8, 10].
-        return new int[0];
+       int []x = new int[0];
+       for(int i=0;i<limite;i++)
+       {
+           x[i]=numero*i;
+       }
+
+        return x;
     }
 
     // Método que calcula el factorial de un número entero
@@ -31,7 +52,18 @@ public class Workshop {
         // TODO: Implementar el método para calcular el factorial de un número entero.
         // Ejemplo: Si n = 5, el resultado debería ser 120.
         // Lanzar IllegalArgumentException si n es negativo.
-        return 0;
+
+       int c,d;
+       c=1;
+       d=1;
+        while(d<=n)
+        {
+            c=c*d;
+            d++;
+        }
+
+
+        return c;
     }
 
     // Método que verifica si un número es primo
@@ -46,13 +78,35 @@ public class Workshop {
         // TODO: Implementar el método para generar la serie de Fibonacci hasta el número n.
         // Ejemplo: Si n = 5, el resultado debería ser [0, 1, 1, 2, 3].
         // Lanzar IllegalArgumentException si n es negativo.
+       int a,b,c;
+       int []x=new int[n];
+       a=0;
+       b=1;
+       c=0;
+       for(int i=2;i<=n;i++)
+       {
+           c=a+b;
+           a=b;
+           b=c;
+           x[i]=c;
+       }
+
         return new int[0];
+
     }
 
     // Método que suma todos los elementos de un arreglo
     public int sumaElementos(int[] arreglo) {
         // TODO: Implementar el método para sumar todos los elementos de un arreglo.
         // Ejemplo: Si arreglo = [1, 2, 3, 4, 5], el resultado debería ser 15.
+        int c,d=0;
+        for(int i=0;i< arreglo.length;i++)
+        {
+                c=arreglo[i];
+                d=d+c;
+
+        }
+        System.out.println("la suma es: " +d);
         return 0;
     }
 
@@ -60,6 +114,16 @@ public class Workshop {
     public double promedioElementos(int[] arreglo) {
         // TODO: Implementar el método para calcular el promedio de los elementos de un arreglo.
         // Ejemplo: Si arreglo = [1, 2, 3, 4, 5], el resultado debería ser 3.0.
+        int c=0;
+        double promedio=0,suma=0;
+        for(int i=0;i< arreglo.length;i++)
+        {
+                c=arreglo[i];
+                suma=suma+c;
+                promedio=suma;
+
+        }
+        System.out.println("el promediol es: " +(promedio/arreglo.length));
         return 0.0;
     }
 
@@ -67,14 +131,36 @@ public class Workshop {
     public int encontrarElementoMayor(int[] arreglo) {
         // TODO: Implementar el método para encontrar el elemento mayor en un arreglo.
         // Ejemplo: Si arreglo = [1, 2, 3, 4, 5], el resultado debería ser 5.
-        return 0;
+        int mayor,menor;
+        mayor=arreglo[0];
+        for(int i=0;i<arreglo.length;i++)
+        {
+
+            if(arreglo[i]>mayor)
+                {
+                    mayor=arreglo[i];
+                }
+
+        }
+        System.out.println("el mayor es: " + mayor);
+        return mayor;
     }
 
     // Método que encuentra el elemento menor en un arreglo
     public int encontrarElementoMenor(int[] arreglo) {
         // TODO: Implementar el método para encontrar el elemento menor en un arreglo.
         // Ejemplo: Si arreglo = [1, 2, 3, 4, 5], el resultado debería ser 1.
-        return 0;
+        int menor;
+        menor=arreglo[0];
+        for(int i=0;i<arreglo.length;i++)
+        {
+                if(arreglo[i]<menor)
+                {
+                    menor=arreglo[i];
+                }
+        }
+        System.out.println("el menor es: " + menor);
+        return menor;
     }
 
     // Método que busca un elemento en un arreglo
@@ -95,6 +181,19 @@ public class Workshop {
     public int[] ordenarArreglo(int[] arreglo) {
         // TODO: Implementar el método para ordenar un arreglo en orden ascendente.
         // Ejemplo: Si arreglo = [5, 4, 3, 2, 1], el resultado debería ser [1, 2, 3, 4, 5].
+        int aux;
+        for(int i=0;i<arreglo.length;i++)
+        {
+            for(int j = 0; j< arreglo.length -i -1; j++)
+            {
+                if(arreglo[j]>arreglo[j+1])
+                {
+                    aux=arreglo[j];
+                    arreglo[j]=arreglo[j+1];
+                    arreglo[j+1]=aux;
+                }
+            }
+        }
         return new int[0];
     }
 
@@ -187,6 +286,8 @@ public class Workshop {
     public double promedioLista(List<Integer> lista) {
         // TODO: Implementar el método para calcular el promedio de una lista de números.
         // Ejemplo: Si lista = [1, 2, 3, 4, 5], el resultado debería ser 3.0.
+
+
         return 0.0;
     }
 
@@ -243,10 +344,168 @@ Rock crushes Scissors
     }
 
     public double areaCirculo(double radio) {
-        return 0.0;
+        double a;
+        a=3.4*(radio*radio);
+        return a;
     }
 
     public String zoodiac(int day, int month) {
+        if(month==3 )
+        {
+            if(day<=20)
+            {
+                System.out.println( " su signo del zodiaco es Picis");
+            } else
+            {
+                if(day>=21)
+                {
+                    System.out.println( " su signo del zodiaco es Aries");
+                }
+            }
+        }
+        if(month==4 )
+        {
+            if(day<=19)
+            {
+                System.out.println( " su signo del zodiaco es Aries");
+            } else
+            {
+                if(day>=20)
+                {
+                    System.out.println( " su signo del zodiaco es Tauro");
+                }
+            }
+        }
+        if(month==5 )
+        {
+            if(day<=20)
+            {
+                System.out.println( " su signo del zodiaco es Tauro");
+            } else
+            {
+                if(day>=21)
+                {
+                    System.out.println( " su signo del zodiaco es Géminis");
+                }
+            }
+        }
+        if(month==6 )
+        {
+            if(day<=20)
+            {
+                System.out.println( " su signo del zodiaco es Geminis");
+            } else
+            {
+                if(day>=21)
+                {
+                    System.out.println( " su signo del zodiaco es Cancer");
+                }
+            }
+        }
+        if(month==7 )
+        {
+            if(day<=22)
+            {
+                System.out.println( " su signo del zodiaco es Cancer");
+            } else
+            {
+                if(day>=23)
+                {
+                    System.out.println( " su signo del zodiaco es Leo");
+                }
+            }
+        }
+        if(month==8 )
+        {
+            if(day<=22)
+            {
+                System.out.println( " su signo del zodiaco es Leo");
+            } else
+            {
+                if(day>=23)
+                {
+                    System.out.println( " su signo del zodiaco es Virgo");
+                }
+            }
+        }
+        if(month==9 )
+        {
+            if(day<=22)
+            {
+                System.out.println( " su signo del zodiaco es Virgo");
+            } else
+            {
+                if(day>=23)
+                {
+                    System.out.println( " su signo del zodiaco es Libra");
+                }
+            }
+        }
+        if(month==10)
+        {
+            if(day<=22)
+            {
+                System.out.println( " su signo del zodiaco es libra");
+            } else
+            {
+                if(day>=23)
+                {
+                    System.out.println( " su signo del zodiaco es Escorpio");
+                }
+            }
+        }
+        if(month==11)
+        {
+            if(day<=21)
+            {
+                System.out.println( " su signo del zodiaco es Escorpio");
+            } else
+            {
+                if(day>=22)
+                {
+                    System.out.println( " su signo del zodiaco es Sagitario");
+                }
+            }
+        }
+        if(month==12 )
+        {
+            if(day<=21)
+            {
+                System.out.println( " su signo del zodiaco es Sagitario");
+            } else
+            {
+                if(day>=22)
+                {
+                    System.out.println( " su signo del zodiaco es Capriconrnio");
+                }
+            }
+        }
+        if(month==1)
+        {
+            if(day<=19)
+            {
+                System.out.println( " su signo del zodiaco es Capricornio");
+            } else
+            {
+                if(day>=20)
+                {
+                    System.out.println( " su signo del zodiaco es Acuario");
+                }
+            }
+        }
+        if(month==2)
+        {
+            if(day<=18)
+            {
+                System.out.println( " su signo del zodiaco es Acuario");
+            } else
+            {
+                if(day>=19)
+                {
+                    System.out.println( " su signo del zodiaco es Picis");
+                }
+            }
+        }
         return "";
     }
 
