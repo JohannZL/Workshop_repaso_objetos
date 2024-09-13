@@ -229,20 +229,37 @@ public class Workshop {
     public String invertirCadena(String cadena) {
         // TODO: Implementar el método para invertir una cadena.
         // Ejemplo: Si cadena = "Hello", el resultado debería ser "olleH".
-        return "";
+        for(int i=cadena.length()-1;i>=0;i--)
+        {
+            System.out.print(cadena.charAt(i));
+        }
+        System.out.println();
+        return cadena;
     }
 
     // Método que verifica si una cadena es un palíndromo
     public boolean esPalindromo(String cadena) {
         // TODO: Implementar el método para verificar si una cadena es un palíndromo.
         // Ejemplo: Si cadena = "madam", el resultado debería ser true.
-        return false;
+      boolean respuesta=true;
+       cadena=cadena.replace(" ","");
+        for(int i=0;i<cadena.length();i++)
+      {
+          if(cadena.charAt(i)!=cadena.charAt(cadena.length()-1-i))
+          {
+             respuesta=false;
+          }
+          
+      }
+
+        return respuesta;
     }
 
     // Método que cuenta el número de palabras en una cadena
     public int contarPalabras(String cadena) {
         // TODO: Implementar el método para contar el número de palabras en una cadena.
         // Ejemplo: Si cadena = "Este es un test", el resultado debería ser 4.
+
         return 0;
     }
 
@@ -250,14 +267,18 @@ public class Workshop {
     public String convertirAMayusculas(String cadena) {
         // TODO: Implementar el método para convertir una cadena a mayúsculas.
         // Ejemplo: Si cadena = "hello", el resultado debería ser "HELLO".
-        return "";
+        String mayuscula;
+        mayuscula=cadena.toUpperCase();
+        return mayuscula;
     }
 
     // Método que convierte una cadena a minúsculas
     public String convertirAMinusculas(String cadena) {
         // TODO: Implementar el método para convertir una cadena a minúsculas.
         // Ejemplo: Si cadena = "HELLO", el resultado debería ser "hello".
-        return "";
+        String minuscula;
+        minuscula = cadena.toLowerCase();
+        return minuscula;
     }
 
     // Método que reemplaza una subcadena en una cadena por otra subcadena
