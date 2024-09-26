@@ -18,14 +18,14 @@ public class Workshop {
     public int mayorDeTresNumeros(int a, int b, int c) {
         // TODO: Implementar el método para retornar el mayor de los tres números enteros.
         // Ejemplo: Si a = 3, b = 7, y c = 5, el resultado debería ser 7.
-        int mayor=0;
-        a=mayor;
+        int mayor;
+        mayor=a;
         if(mayor<b)
         {
-            b=mayor;
+            mayor=b;
             if(mayor<c)
             {
-                c=mayor;
+                mayor=c;
             }
         }else
         {
@@ -35,15 +35,15 @@ public class Workshop {
     }
 
     // Método que retorna la tabla de multiplicar de un número
-    public int[] tablaMultiplicar(int numero, int limite) {
+    public int[] tablaMultiplicar(int numero, int limite)
+    {
         // TODO: Implementar el método para retornar la tabla de multiplicar del número dado.
         // Ejemplo: Si numero = 2 y limite = 5, el resultado debería ser [2, 4, 6, 8, 10].
-       int []x = new int[0];
-       for(int i=0;i<limite;i++)
+       int []x = new int[limite];
+       for(int i=0;i<=limite;i++)
        {
-           x[i]=numero*i;
+           x[i]=numero*(i+1);
        }
-
         return x;
     }
 
@@ -70,7 +70,21 @@ public class Workshop {
     public boolean esPrimo(int numero) {
         // TODO: Implementar el método para verificar si un número es primo.
         // Ejemplo: Si numero = 7, el resultado debería ser true.
-        return false;
+        boolean primo=false;
+        int i=0;
+        for(int x=1;x<=numero;x++)
+        {
+            if(numero%x==0)
+            {
+                i++;
+            }
+        }
+        if(i==2)
+        {
+            primo=true;
+        }
+
+        return primo;
     }
 
     // Método que genera una serie de Fibonacci
@@ -96,7 +110,8 @@ public class Workshop {
     }
 
     // Método que suma todos los elementos de un arreglo
-    public int sumaElementos(int[] arreglo) {
+    public int sumaElementos(int[] arreglo)
+    {
         // TODO: Implementar el método para sumar todos los elementos de un arreglo.
         // Ejemplo: Si arreglo = [1, 2, 3, 4, 5], el resultado debería ser 15.
         int c,d=0;
@@ -106,29 +121,26 @@ public class Workshop {
                 d=d+c;
 
         }
-        System.out.println("la suma es: " +d);
-        return 0;
+        return d;
     }
 
     // Método que calcula el promedio de los elementos de un arreglo
-    public double promedioElementos(int[] arreglo) {
+    public double promedioElementos(int[] arreglo)
+    {
         // TODO: Implementar el método para calcular el promedio de los elementos de un arreglo.
         // Ejemplo: Si arreglo = [1, 2, 3, 4, 5], el resultado debería ser 3.0.
-        int c=0;
-        double promedio=0,suma=0;
-        for(int i=0;i< arreglo.length;i++)
+        double promedio,suma=0;
+        for(int i=0;i<=arreglo.length;i++)
         {
-                c=arreglo[i];
-                suma=suma+c;
-                promedio=suma;
-
+                suma=suma+arreglo[i];
         }
-        System.out.println("el promediol es: " +(promedio/arreglo.length));
-        return 0.0;
+        promedio=(suma/arreglo.length);
+        return promedio;
     }
 
     // Método que encuentra el elemento mayor en un arreglo
-    public int encontrarElementoMayor(int[] arreglo) {
+    public int encontrarElementoMayor(int[] arreglo)
+    {
         // TODO: Implementar el método para encontrar el elemento mayor en un arreglo.
         // Ejemplo: Si arreglo = [1, 2, 3, 4, 5], el resultado debería ser 5.
         int mayor,menor;
@@ -142,12 +154,12 @@ public class Workshop {
                 }
 
         }
-        System.out.println("el mayor es: " + mayor);
         return mayor;
     }
 
     // Método que encuentra el elemento menor en un arreglo
-    public int encontrarElementoMenor(int[] arreglo) {
+    public int encontrarElementoMenor(int[] arreglo)
+    {
         // TODO: Implementar el método para encontrar el elemento menor en un arreglo.
         // Ejemplo: Si arreglo = [1, 2, 3, 4, 5], el resultado debería ser 1.
         int menor;
@@ -159,7 +171,6 @@ public class Workshop {
                     menor=arreglo[i];
                 }
         }
-        System.out.println("el menor es: " + menor);
         return menor;
     }
 
@@ -171,10 +182,19 @@ public class Workshop {
     }
 
     // Método que invierte un arreglo
-    public int[] invertirArreglo(int[] arreglo) {
+    public int[] invertirArreglo(int[] arreglo)
+    {
         // TODO: Implementar el método para invertir un arreglo.
         // Ejemplo: Si arreglo = [1, 2, 3, 4, 5], el resultado debería ser [5, 4, 3, 2, 1].
-        return new int[0];
+        int aux;
+        for(int i=0;i<arreglo.length/2;i++)
+        {
+            aux=arreglo[i];
+            arreglo[i]=arreglo[arreglo.length-1-i];
+            arreglo[arreglo.length-1-i]=aux;
+        }
+
+        return arreglo ;
     }
 
     // Método que ordena un arreglo en orden ascendente
@@ -201,7 +221,23 @@ public class Workshop {
     public int[] eliminarDuplicados(int[] arreglo) {
         // TODO: Implementar el método para eliminar los duplicados de un arreglo.
         // Ejemplo: Si arreglo = [1, 2, 2, 3, 4, 4, 5], el resultado debería ser [1, 2, 3, 4, 5].
-        return new int[0];
+        int contador=0;
+        for(int i=0;i<arreglo.length;i++)
+        {
+            if(arreglo[i]==arreglo[i+1])
+            {
+                contador++;
+            }
+        }
+        for(int i=0;i<arreglo.length-contador;i++)
+        {
+            if(arreglo[i]==arreglo[i+1])
+            {
+                arreglo[i]=arreglo[i+1];
+            }
+        }
+
+        return arreglo;
     }
 
     // Método que combina dos arreglos en uno solo
@@ -222,19 +258,29 @@ public class Workshop {
     public int contarCaracteres(String cadena) {
         // TODO: Implementar el método para contar el número de caracteres en una cadena.
         // Ejemplo: Si cadena = "Hello", el resultado debería ser 5.
-        return 0;
+       int caracter=0;
+       for(int i=0;i<cadena.length();i++)
+       {
+           if(cadena.charAt(i) !=' ')
+           {
+               caracter++;
+           }
+       }
+
+        return caracter;
     }
 
     // Método que invierte una cadena
     public String invertirCadena(String cadena) {
         // TODO: Implementar el método para invertir una cadena.
         // Ejemplo: Si cadena = "Hello", el resultado debería ser "olleH".
+       String invertir = "";
         for(int i=cadena.length()-1;i>=0;i--)
         {
-            System.out.print(cadena.charAt(i));
+            invertir=invertir+cadena.charAt(i);
         }
-        System.out.println();
-        return cadena;
+
+        return invertir;
     }
 
     // Método que verifica si una cadena es un palíndromo
@@ -242,7 +288,7 @@ public class Workshop {
         // TODO: Implementar el método para verificar si una cadena es un palíndromo.
         // Ejemplo: Si cadena = "madam", el resultado debería ser true.
       boolean respuesta=true;
-       cadena=cadena.replace(" ","");
+       cadena=cadena.replace(" ","").toLowerCase();
         for(int i=0;i<cadena.length();i++)
       {
           if(cadena.charAt(i)!=cadena.charAt(cadena.length()-1-i))
@@ -259,8 +305,8 @@ public class Workshop {
     public int contarPalabras(String cadena) {
         // TODO: Implementar el método para contar el número de palabras en una cadena.
         // Ejemplo: Si cadena = "Este es un test", el resultado debería ser 4.
-
-        return 0;
+            String []palabra= cadena.trim().split(" +");
+        return palabra.length;
     }
 
     // Método que convierte una cadena a mayúsculas
@@ -313,16 +359,26 @@ public class Workshop {
     }
 
     // Método que convierte un número en su representación binaria
-    public String convertirABinario(int numero) {
+    public int convertirABinario(int numero) {
         // TODO: Implementar el método para convertir un número en su representación binaria.
         // Ejemplo: Si numero = 10, el resultado debería ser "1010".
-        return "";
+        int c = 0;
+        while(numero>=2)
+           {
+               c=numero%2;
+               numero=numero/2;
+           }
+
+        return c;
     }
 
     // Método que convierte un número en su representación hexadecimal
     public String convertirAHexadecimal(int numero) {
         // TODO: Implementar el método para convertir un número en su representación hexadecimal.
         // Ejemplo: Si numero = 255, el resultado debería ser "FF".
+        
+
+
         return "";
     }
 
