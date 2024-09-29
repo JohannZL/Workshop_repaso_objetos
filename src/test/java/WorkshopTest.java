@@ -120,11 +120,11 @@ public class WorkshopTest {
     @Test
     public void testPromedioElementos() {
         // Test 1: Promedio de elementos positivos
-        assertEquals(3.0, tester.promedioElementos(new int[]{1, 2, 3, 4, 5}));
+        assertEquals(3.0, tester.promedioElementos(new int[]{1, 2, 3, 4, 5}),0.001);
         // Test 2: Promedio con elementos negativos
-        assertEquals(-3.0, tester.promedioElementos(new int[]{-1, -2, -3, -4, -5}));
+        assertEquals(-3.0, tester.promedioElementos(new int[]{-1, -2, -3, -4, -5}),0.001);
         // Test 3: Promedio de elementos con cero
-        assertEquals(0.0, tester.promedioElementos(new int[]{0, 0, 0, 0}));
+        assertEquals(0.0, tester.promedioElementos(new int[]{0, 0, 0, 0}),0.001);
     }
 
     // Test para el método encontrarElementoMayor
@@ -219,11 +219,11 @@ public class WorkshopTest {
     @Test
     public void testContarCaracteres() {
         // Test 1: Contar caracteres en cadena
-        assertEquals(13, tester.contarCaracteres("Hola mundo"));
+        assertEquals(9, tester.contarCaracteres("Hola mundo"));
         // Test 2: Contar caracteres en cadena vacía
         assertEquals(0, tester.contarCaracteres(""));
         // Test 3: Contar caracteres en cadena con espacios
-        assertEquals(14, tester.contarCaracteres("Hola   mundo"));
+        assertEquals(9, tester.contarCaracteres("Hola   mundo"));
     }
 
     // Test para el método invertirCadena

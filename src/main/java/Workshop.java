@@ -40,7 +40,7 @@ public class Workshop {
         // TODO: Implementar el método para retornar la tabla de multiplicar del número dado.
         // Ejemplo: Si numero = 2 y limite = 5, el resultado debería ser [2, 4, 6, 8, 10].
        int []x = new int[limite];
-       for(int i=0;i<=limite;i++)
+       for(int i=0;i<limite;i++)
        {
            x[i]=numero*(i+1);
        }
@@ -130,7 +130,7 @@ public class Workshop {
         // TODO: Implementar el método para calcular el promedio de los elementos de un arreglo.
         // Ejemplo: Si arreglo = [1, 2, 3, 4, 5], el resultado debería ser 3.0.
         double promedio,suma=0;
-        for(int i=0;i<=arreglo.length;i++)
+        for(int i=0;i<arreglo.length;i++)
         {
                 suma=suma+arreglo[i];
         }
@@ -178,7 +178,16 @@ public class Workshop {
     public boolean buscarElemento(int[] arreglo, int elemento) {
         // TODO: Implementar el método para buscar un elemento en un arreglo.
         // Ejemplo: Si arreglo = [1, 2, 3, 4, 5] y elemento = 3, el resultado debería ser true.
-        return false;
+       boolean encontrar=true;
+       for(int i=0;i<arreglo.length;i++)
+       {
+           if(arreglo[i]!=elemento)
+           {
+               encontrar=false;
+           }
+       }
+
+        return encontrar;
     }
 
     // Método que invierte un arreglo
