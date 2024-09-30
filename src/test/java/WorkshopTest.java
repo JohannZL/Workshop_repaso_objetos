@@ -24,7 +24,7 @@ public class WorkshopTest {
     //Test para el area del circulo
     public void testAreaCirculo() {
         assertEquals(Math.PI, tester.areaCirculo(1), 0.001);
-        assertEquals((Math.PI*10), tester.areaCirculo(10), 0.001);;
+        assertEquals((Math.PI*(10*10)), tester.areaCirculo(10), 0.001);;
         assertEquals(0, tester.areaCirculo(0), 0.001);
     }
 
@@ -310,11 +310,11 @@ public class WorkshopTest {
     @Test
     public void testPromedioLista() {
         // Test 1: Promedio de lista de números
-        assertEquals(3.0, tester.promedioLista(List.of(1, 2, 3, 4, 5)));
+        assertEquals(3.0, tester.promedioLista(List.of(1, 2, 3, 4, 5)),0.1);
         // Test 2: Promedio de lista con un solo número
-        assertEquals(7.0, tester.promedioLista(List.of(7)));
+        assertEquals(7.0, tester.promedioLista(List.of(7)),0.1);
         // Test 3: Promedio de lista vacía
-        assertEquals(0.0, tester.promedioLista(List.of()));
+        assertEquals(0.0, tester.promedioLista(List.of()),0.1);
     }
 
     // Test para el método convertirABinario

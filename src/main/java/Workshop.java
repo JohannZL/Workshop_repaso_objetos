@@ -92,20 +92,18 @@ public class Workshop {
         // TODO: Implementar el método para generar la serie de Fibonacci hasta el número n.
         // Ejemplo: Si n = 5, el resultado debería ser [0, 1, 1, 2, 3].
         // Lanzar IllegalArgumentException si n es negativo.
-       int a,b,c;
+       int a=0,b=1,c;
        int []x=new int[n];
-       a=0;
-       b=1;
-       c=0;
-       for(int i=2;i<=n;i++)
+
+       for(int i=0;i<n;i++)
        {
-           c=a+b;
-           a=b;
-           b=c;
-           x[i]=c;
+            x[i]=a;
+            c=a+b;
+            a=b;
+            b=c;
        }
 
-        return new int[0];
+        return x;
 
     }
 
@@ -143,7 +141,7 @@ public class Workshop {
     {
         // TODO: Implementar el método para encontrar el elemento mayor en un arreglo.
         // Ejemplo: Si arreglo = [1, 2, 3, 4, 5], el resultado debería ser 5.
-        int mayor,menor;
+        int mayor;
         mayor=arreglo[0];
         for(int i=0;i<arreglo.length;i++)
         {
@@ -178,12 +176,12 @@ public class Workshop {
     public boolean buscarElemento(int[] arreglo, int elemento) {
         // TODO: Implementar el método para buscar un elemento en un arreglo.
         // Ejemplo: Si arreglo = [1, 2, 3, 4, 5] y elemento = 3, el resultado debería ser true.
-       boolean encontrar=true;
+       boolean encontrar=false;
        for(int i=0;i<arreglo.length;i++)
        {
-           if(arreglo[i]!=elemento)
+           if(arreglo[i]==elemento)
            {
-               encontrar=false;
+               encontrar=true;
            }
        }
 
@@ -362,22 +360,39 @@ public class Workshop {
     public double promedioLista(List<Integer> lista) {
         // TODO: Implementar el método para calcular el promedio de una lista de números.
         // Ejemplo: Si lista = [1, 2, 3, 4, 5], el resultado debería ser 3.0.
-
-
-        return 0.0;
+        double promedio,a=0;
+        if(lista.size()==0)
+        {
+            promedio=0.0;
+        }
+        for(int i=0;i<lista.size();i++)
+        {
+            a=a+ lista.get(i);
+        }
+        promedio=a/lista.size();
+        if(lista.size()==0)
+        {
+            promedio=0.0;
+        }
+        return promedio;
     }
 
     // Método que convierte un número en su representación binaria
-    public int convertirABinario(int numero) {
+    public String convertirABinario(int numero) {
         // TODO: Implementar el método para convertir un número en su representación binaria.
         // Ejemplo: Si numero = 10, el resultado debería ser "1010".
-        int c = 0;
+        String c = "";
+        int cont=1;
+        char a;
         while(numero>=2)
            {
-               c=numero%2;
                numero=numero/2;
+               cont++;
            }
+    for(int i=0;i<cont;i++)
+    {
 
+    }
         return c;
     }
 
@@ -431,21 +446,25 @@ Rock crushes Scissors
 
     public double areaCirculo(double radio) {
         double a;
-        a=3.4*(radio*radio);
+        a=Math.PI*(radio*radio);
         return a;
     }
 
-    public String zoodiac(int day, int month) {
+    public String zoodiac(int day, int month)
+    {
+        String x=" ";
         if(month==3 )
         {
             if(day<=20)
             {
                 System.out.println( " su signo del zodiaco es Picis");
+                x=x.replace(" ","Picis");
             } else
             {
                 if(day>=21)
                 {
                     System.out.println( " su signo del zodiaco es Aries");
+                    x=x.replace(" ","Aries");
                 }
             }
         }
@@ -454,11 +473,13 @@ Rock crushes Scissors
             if(day<=19)
             {
                 System.out.println( " su signo del zodiaco es Aries");
+                x=x.replace(" ","Aries");
             } else
             {
                 if(day>=20)
                 {
                     System.out.println( " su signo del zodiaco es Tauro");
+                    x=x.replace(" ","Tauro");
                 }
             }
         }
@@ -467,11 +488,13 @@ Rock crushes Scissors
             if(day<=20)
             {
                 System.out.println( " su signo del zodiaco es Tauro");
+                x=x.replace(" ","Tauro");
             } else
             {
                 if(day>=21)
                 {
                     System.out.println( " su signo del zodiaco es Géminis");
+                    x=x.replace(" ","Gemini");
                 }
             }
         }
@@ -480,11 +503,13 @@ Rock crushes Scissors
             if(day<=20)
             {
                 System.out.println( " su signo del zodiaco es Geminis");
+                x=x.replace(" ","Gemini");
             } else
             {
                 if(day>=21)
                 {
                     System.out.println( " su signo del zodiaco es Cancer");
+                    x=x.replace(" ","Cancer");
                 }
             }
         }
@@ -493,11 +518,13 @@ Rock crushes Scissors
             if(day<=22)
             {
                 System.out.println( " su signo del zodiaco es Cancer");
+                x=x.replace(" ","Cancer");
             } else
             {
                 if(day>=23)
                 {
                     System.out.println( " su signo del zodiaco es Leo");
+                    x=x.replace(" ","Leo");
                 }
             }
         }
@@ -506,11 +533,13 @@ Rock crushes Scissors
             if(day<=22)
             {
                 System.out.println( " su signo del zodiaco es Leo");
+                x=x.replace(" ","Leo");
             } else
             {
                 if(day>=23)
                 {
                     System.out.println( " su signo del zodiaco es Virgo");
+                    x=x.replace(" ","Virgo");
                 }
             }
         }
@@ -519,11 +548,13 @@ Rock crushes Scissors
             if(day<=22)
             {
                 System.out.println( " su signo del zodiaco es Virgo");
+                x=x.replace(" ","Virgo");
             } else
             {
                 if(day>=23)
                 {
                     System.out.println( " su signo del zodiaco es Libra");
+                    x=x.replace(" ","Libra");
                 }
             }
         }
@@ -532,11 +563,13 @@ Rock crushes Scissors
             if(day<=22)
             {
                 System.out.println( " su signo del zodiaco es libra");
+                x=x.replace(" ","Libra");
             } else
             {
                 if(day>=23)
                 {
                     System.out.println( " su signo del zodiaco es Escorpio");
+                    x=x.replace(" ","Escorpio");
                 }
             }
         }
@@ -545,11 +578,13 @@ Rock crushes Scissors
             if(day<=21)
             {
                 System.out.println( " su signo del zodiaco es Escorpio");
+                x=x.replace(" ","Escorpio");
             } else
             {
                 if(day>=22)
                 {
                     System.out.println( " su signo del zodiaco es Sagitario");
+                    x=x.replace(" ","Sagitario");
                 }
             }
         }
@@ -558,11 +593,13 @@ Rock crushes Scissors
             if(day<=21)
             {
                 System.out.println( " su signo del zodiaco es Sagitario");
+                x=x.replace(" ","Sagitario");
             } else
             {
                 if(day>=22)
                 {
                     System.out.println( " su signo del zodiaco es Capriconrnio");
+                    x=x.replace(" ","Capricornio");
                 }
             }
         }
@@ -571,28 +608,39 @@ Rock crushes Scissors
             if(day<=19)
             {
                 System.out.println( " su signo del zodiaco es Capricornio");
+                x=x.replace(" ","Capricornio");
             } else
             {
                 if(day>=20)
                 {
                     System.out.println( " su signo del zodiaco es Acuario");
+                    x=x.replace(" ","Acuario");
                 }
             }
         }
         if(month==2)
         {
-            if(day<=18)
+            if(day>28)
             {
-                System.out.println( " su signo del zodiaco es Acuario");
-            } else
+                x=x.replace(" ","Invalid Date");
+            }else
             {
-                if(day>=19)
+                if(day<=18)
                 {
-                    System.out.println( " su signo del zodiaco es Picis");
+                    System.out.println( " su signo del zodiaco es Acuario");
+                    x=x.replace(" ","Acuario");
+                } else
+                {
+                    if(day>=19)
+                    {
+                        System.out.println( " su signo del zodiaco es Picis");
+                        x=x.replace(" ","Picis");
+                    }
                 }
             }
+
         }
-        return "";
+        return x;
     }
 
 
