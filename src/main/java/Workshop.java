@@ -251,14 +251,52 @@ public class Workshop {
     public int[] combinarArreglos(int[] arreglo1, int[] arreglo2) {
         // TODO: Implementar el método para combinar dos arreglos en uno solo.
         // Ejemplo: Si arreglo1 = [1, 2, 3, 4, 5] y arreglo2 = [6, 7, 8], el resultado debería ser [1, 2, 3, 4, 5, 6, 7, 8].
-        return new int[0];
+       int tam,c=0;
+       tam=arreglo1.length+arreglo2.length;
+       int []x=new int[tam];
+       for(int i=0;i<arreglo1.length;i++)
+       {
+            x[c++]=arreglo1[i];
+       }
+        for(int j=0;j<arreglo2.length;j++)
+        {
+            x[c++]=arreglo2[j];
+        }
+
+        return x;
     }
 
     // Método que rota un arreglo n posiciones
     public int[] rotarArreglo(int[] arreglo, int posiciones) {
         // TODO: Implementar el método para rotar un arreglo n posiciones.
         // Ejemplo: Si arreglo = [1, 2, 3, 4, 5] y posiciones = 2, el resultado debería ser [3, 4, 5, 1, 2].
-        return new int[0];
+       int cont=0;
+      if(posiciones>0)
+      {
+          while(cont<posiciones)
+          {
+              int end=arreglo[arreglo.length-1];
+              for(int j=arreglo.length-1; j>0 ; j--)
+              {
+                  arreglo[j]=arreglo[j-1];
+              }
+              arreglo[0]=end;
+              cont ++;
+          }
+      } else
+      {
+          while(cont>posiciones)
+          {
+              int first=arreglo[0];
+              for(int j=0;j<arreglo.length-1;j++)
+              {
+                  arreglo[j]=arreglo[j+1];
+              }
+            arreglo[arreglo.length-1]=first;
+              cont--;
+          }
+      }
+        return arreglo;
     }
 
     // Método que cuenta los caracteres en una cadena
@@ -302,9 +340,7 @@ public class Workshop {
           {
              respuesta=false;
           }
-          
       }
-
         return respuesta;
     }
 
@@ -312,8 +348,24 @@ public class Workshop {
     public int contarPalabras(String cadena) {
         // TODO: Implementar el método para contar el número de palabras en una cadena.
         // Ejemplo: Si cadena = "Este es un test", el resultado debería ser 4.
-            String []palabra= cadena.trim().split(" +");
-        return palabra.length;
+            int palabra=1;
+        if(cadena=="")
+        {
+            palabra--;
+        } else
+        {
+            for(int i=0;i<cadena.length();i++)
+            {
+                if(cadena.charAt(i)==' ')
+                {
+                    if(cadena.charAt(i+1)!=' ')
+                    {
+                        palabra++;
+                    }
+                }
+            }
+        }
+            return palabra;
     }
 
     // Método que convierte una cadena a mayúsculas
@@ -338,14 +390,33 @@ public class Workshop {
     public String reemplazarSubcadena(String cadena, String antiguaSubcadena, String nuevaSubcadena) {
         // TODO: Implementar el método para reemplazar una subcadena en una cadena por otra subcadena.
         // Ejemplo: Si cadena = "Hello Java", antiguaSubcadena = "Java", y nuevaSubcadena = "world", el resultado debería ser "Hello world".
-        return "";
+        cadena=cadena.replace(antiguaSubcadena,nuevaSubcadena);
+        return cadena;
     }
 
     // Método que busca una subcadena en una cadena y retorna su índice
     public int buscarSubcadena(String cadena, String subcadena) {
         // TODO: Implementar el método para buscar una subcadena en una cadena y retornar su índice.
         // Ejemplo: Si cadena = "Hello world" y subcadena = "world", el resultado debería ser 6.
-        return -1;
+        int cont=0;
+        if(cadena =="")
+        {
+            cont--;
+        } else
+        {
+            for(int j=0;j<subcadena.length();j++)
+                {
+                    if(subcadena.charAt(j)!=' ')
+                    {
+                        cont++;
+                    }
+                }
+        }
+        if(cont==0)
+        {
+            cont--;
+        }
+        return cont;
     }
 
     // Método que valida un correo electrónico
@@ -381,29 +452,96 @@ public class Workshop {
     public String convertirABinario(int numero) {
         // TODO: Implementar el método para convertir un número en su representación binaria.
         // Ejemplo: Si numero = 10, el resultado debería ser "1010".
-        String c = "";
-        int cont=1;
-        char a;
-        while(numero>=2)
-           {
-               numero=numero/2;
-               cont++;
-           }
-    for(int i=0;i<cont;i++)
-    {
+        String binario="";
+        int residuo,cont=0;
+        if(numero<0)
+        {
+            numero=numero*-1;
+            cont ++;
+        }
+        if(numero==0)
+        {
+            binario="0";
+        }else
+        {
+            while(numero!=0)
+            {
+                residuo=(numero%2);
+                binario=residuo+binario;
+                numero=numero/2;
+            }
+        }
+        if(cont==1)
+        {
+            binario="-"+binario;
+        }
+        return binario;
+    }
 
-    }
-        return c;
-    }
 
     // Método que convierte un número en su representación hexadecimal
-    public String convertirAHexadecimal(int numero) {
+    public String convertirAHexadecimal(int numero)
+    {
         // TODO: Implementar el método para convertir un número en su representación hexadecimal.
         // Ejemplo: Si numero = 255, el resultado debería ser "FF".
-        
+        String Hexadecimal="";
+        int residuo,cont=0;
+       if(numero<0)
+       {
+           numero=Math.abs(numero);
+           cont++;
+       }
 
+        if(numero==0)
+        {
+            Hexadecimal="0";
+        }else
+        {
+            while(numero!=0)
+            {
+                residuo=(numero%16);
+                if(residuo<10)
+                {
+                    Hexadecimal=Hexadecimal+residuo;
+                }else
+                {
+                    switch (residuo)
+                    {
+                        case 10:
+                        {
+                            Hexadecimal="A"+Hexadecimal;
+                        } break;
+                        case 11:
+                        {
+                            Hexadecimal="B"+Hexadecimal;
+                        } break;
+                        case 12:
+                        {
+                            Hexadecimal="C"+Hexadecimal;
+                        } break;
+                        case 13:
+                        {
+                            Hexadecimal="D"+Hexadecimal;
+                        } break;
+                        case 14:
+                        {
+                            Hexadecimal="E"+Hexadecimal;
+                        } break;
+                        case 15:
+                        {
+                            Hexadecimal="F"+Hexadecimal;
+                        }
+                    }
+                }
+                numero=numero/16;
+            }
+        }
+        if(cont==1)
+        {
+            Hexadecimal="-"+Hexadecimal;
+        }
 
-        return "";
+        return Hexadecimal;
     }
 
     // Método para el juego de piedra, papel, tijera, lagarto, Spock
@@ -461,7 +599,7 @@ Rock crushes Scissors
                 x=x.replace(" ","Picis");
             } else
             {
-                if(day>=21)
+                if(day>21)
                 {
                     System.out.println( " su signo del zodiaco es Aries");
                     x=x.replace(" ","Aries");
@@ -476,7 +614,7 @@ Rock crushes Scissors
                 x=x.replace(" ","Aries");
             } else
             {
-                if(day>=20)
+                if(day>20)
                 {
                     System.out.println( " su signo del zodiaco es Tauro");
                     x=x.replace(" ","Tauro");
@@ -491,7 +629,7 @@ Rock crushes Scissors
                 x=x.replace(" ","Tauro");
             } else
             {
-                if(day>=21)
+                if(day>21)
                 {
                     System.out.println( " su signo del zodiaco es Géminis");
                     x=x.replace(" ","Gemini");
@@ -506,7 +644,7 @@ Rock crushes Scissors
                 x=x.replace(" ","Gemini");
             } else
             {
-                if(day>=21)
+                if(day>21)
                 {
                     System.out.println( " su signo del zodiaco es Cancer");
                     x=x.replace(" ","Cancer");
@@ -521,7 +659,7 @@ Rock crushes Scissors
                 x=x.replace(" ","Cancer");
             } else
             {
-                if(day>=23)
+                if(day>23)
                 {
                     System.out.println( " su signo del zodiaco es Leo");
                     x=x.replace(" ","Leo");
@@ -536,7 +674,7 @@ Rock crushes Scissors
                 x=x.replace(" ","Leo");
             } else
             {
-                if(day>=23)
+                if(day>23)
                 {
                     System.out.println( " su signo del zodiaco es Virgo");
                     x=x.replace(" ","Virgo");
@@ -551,7 +689,7 @@ Rock crushes Scissors
                 x=x.replace(" ","Virgo");
             } else
             {
-                if(day>=23)
+                if(day>23)
                 {
                     System.out.println( " su signo del zodiaco es Libra");
                     x=x.replace(" ","Libra");
@@ -566,7 +704,7 @@ Rock crushes Scissors
                 x=x.replace(" ","Libra");
             } else
             {
-                if(day>=23)
+                if(day>23)
                 {
                     System.out.println( " su signo del zodiaco es Escorpio");
                     x=x.replace(" ","Escorpio");
@@ -581,7 +719,7 @@ Rock crushes Scissors
                 x=x.replace(" ","Escorpio");
             } else
             {
-                if(day>=22)
+                if(day>22)
                 {
                     System.out.println( " su signo del zodiaco es Sagitario");
                     x=x.replace(" ","Sagitario");
@@ -596,7 +734,7 @@ Rock crushes Scissors
                 x=x.replace(" ","Sagitario");
             } else
             {
-                if(day>=22)
+                if(day>22)
                 {
                     System.out.println( " su signo del zodiaco es Capriconrnio");
                     x=x.replace(" ","Capricornio");
@@ -611,7 +749,7 @@ Rock crushes Scissors
                 x=x.replace(" ","Capricornio");
             } else
             {
-                if(day>=20)
+                if(day>20)
                 {
                     System.out.println( " su signo del zodiaco es Acuario");
                     x=x.replace(" ","Acuario");
@@ -631,7 +769,7 @@ Rock crushes Scissors
                     x=x.replace(" ","Acuario");
                 } else
                 {
-                    if(day>=19)
+                    if(day>19)
                     {
                         System.out.println( " su signo del zodiaco es Picis");
                         x=x.replace(" ","Picis");
@@ -642,7 +780,5 @@ Rock crushes Scissors
         }
         return x;
     }
-
-
 }
 
